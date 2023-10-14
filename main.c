@@ -72,5 +72,8 @@ int main(int ac, char **av)
     char    *strr;
     strr = ft_substr(tast, 0, 3);
     printf("%s\n", strr);
+    char **strs = ft_split(av[1], ' ');
+    for (int i = 0; strs[i]; i++)
+        printf("%s\n", strs[i]);
     return (0);
 }

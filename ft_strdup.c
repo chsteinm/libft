@@ -13,5 +13,6 @@ char    *ft_strdup(char *src)
     i = -1;
     while (src[++i])
         copy[i] = src[i];
+    copy[i] = 0;
     return (copy);
 }

@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "libft.h"
 
 static int	atoi_overflow(int sign)

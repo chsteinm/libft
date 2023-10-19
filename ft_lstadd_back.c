@@ -5,10 +5,10 @@ void    ft_lstadd_back(t_list **lst, t_list *new)
     t_list  *ptr;
 
     ptr = *lst;
-    while (ptr->next)
+    while (ptr && ptr->next)
         ptr = ptr->next;
     if (ptr)
         ptr->next = new;
     else
-        ptr = new;
+        *lst = new;
 }

@@ -1,6 +1,4 @@
-int ft_isascii(char c)
+int ft_isascii(int c)
 {
-    if (c < 0 || c > 127)
-        return (0);
-    return (1);
+    return (c >= 0 && c <= 127);
 }

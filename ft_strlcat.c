@@ -14,5 +14,5 @@ int ft_strlcat(char *dst, const char *src, unsigned int size)
     while (i < size - 1 && *src)
         dst[i++] = *src++;
     dst[i] = 0;
-    return (d_len + size);
+    return (d_len + s_len);
 }

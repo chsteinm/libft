@@ -8,8 +8,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s)
 		return (NULL);
 	if (!f)
-		return (ft_strdup(s));
-	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
+		return (ft_strdup((char *)s));
+	str = malloc(sizeof(char) * (ft_strlen((char *)s) + 1));
 	if (!str)
 		return (NULL);
 	i = -1;

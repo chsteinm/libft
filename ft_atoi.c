@@ -3,26 +3,19 @@
 #include <string.h>
 #include "libft.h"
 
-int check_l_overflow(int sign, char *str)
+static int	atoi_overflow(int sign)
 {
-    int i;
-
-    i = 0;
-    printf("%d\n", ft_strncmp("9223372036854775807", str, 19));
-    printf("%d\n", strncmp("9223372036854775807", str, 19));
-    while (str[i] >= '0' && str[i] <= '9')
-        i++;
-    if (i >= 19 && sign == 1)
-        return (ft_strncmp("9223372036854775807", str, 19));
-    else if (i >= 19)
-        return (ft_strncmp("9223372036854775808", str, 19));
-    return (0);
+	if (sign > 0)
+		return (-1);
+	else
+		return (0);
 }
 
 int ft_atoi(char *str)
 {
-    int res;
-    int sign;
+    long res;
+    long sign;
+    long last;
 
     res = 0;
     sign = 1;
@@ -35,18 +28,13 @@ int ft_atoi(char *str)
         str++;
         sign = -1;
     }
-    if (check_l_overflow(sign, str) < 0)
-    {
-        if (sign == 1)
-            return (-1);
-        return (0);
-    }    
     while (*str >= '0' && *str <= '9')
-        res = res * 10 + *str++ - 48;
-    return (res * sign);
+    {
+        last = res;
+        res = res * 10;
+        if (last != res / 10)
+			return (atoi_overflow(sign));
+        res += *str++ - 48;
+    }
+    return ((int)(res * sign));
 }
-
-// int main(int ac, char **av){
-//     printf("%d\n", atoi(av[1]));
-//     printf("%d\n", ft_atoi(av[1]));
-// }

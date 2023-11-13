@@ -1,9 +1,23 @@
-void    *ft_memset(char *str, int c, int size)
-{
-    int i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chrstein <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/06 16:10:49 by chrstein          #+#    #+#             */
+/*   Updated: 2023/11/06 16:10:58 by chrstein         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    i = -1;
-    while (++i < size)
-        str[i] = c;
-    return (str);
+void	*ft_memset(void *str, int c, int size)
+{
+	int		i;
+	char	*s;
+
+	s = str;
+	i = -1;
+	while (++i < size)
+		s[i] = c;
+	return (str);
 }

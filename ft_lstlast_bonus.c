@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrstein <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 16:31:09 by chrstein          #+#    #+#             */
-/*   Updated: 2023/11/06 16:31:15 by chrstein         ###   ########.fr       */
+/*   Created: 2023/11/06 16:02:35 by chrstein          #+#    #+#             */
+/*   Updated: 2023/11/06 16:03:16 by chrstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
+	while (lst && lst->next)
+		lst = lst->next;
+	return (lst);
 }

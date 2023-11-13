@@ -1,9 +1,21 @@
-void    *ft_bzero(void *str, int size)
-{
-    char    *s;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chrstein <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/06 15:41:11 by chrstein          #+#    #+#             */
+/*   Updated: 2023/11/06 15:42:15 by chrstein         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    s = (char *)str;
-    while (size--)
-        *s++ = 0;
-    return (str);
+void	*ft_bzero(void *str, int size)
+{
+	char	*s;
+
+	s = (char *)str;
+	while (size--)
+		*s++ = 0;
+	return (str);
 }

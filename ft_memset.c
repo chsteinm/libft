@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *str, int c, int size)
+#include "libft.h"
+
+void	*ft_memset(void *str, int c, size_t size)
 {
-	int		i;
+	size_t	i;
 	char	*s;
 
 	s = str;

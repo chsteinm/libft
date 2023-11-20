@@ -45,11 +45,10 @@ SRCS_BONUS =	ft_lstadd_back_bonus.c \
 				ft_lstnew_bonus.c \
 				ft_lstsize_bonus.c
 OBJ_BONUS = $(SRCS_BONUS:.c=.o)
-HEAD = libft.h
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(HEAD)
+$(NAME): $(OBJ)
 	ar rcs $@ $^
 
 bonus: $(NAME) $(OBJ_BONUS)
@@ -60,10 +59,12 @@ bonus: $(NAME) $(OBJ_BONUS)
 	fi
 
 %.o: %.c
-	cc $(CFLAGS) -I. -c $< -o $@
+	cc $(CFLAGS) -MMD -MP -c $< -o $@
+
+-include $(OBJ:.o=.d) $(OBJ_BONUS:.o=.d)
 
 clean:
-	rm -f *.o
+	rm -f *.o *.d
 
 fclean: clean
 	rm -f $(NAME)

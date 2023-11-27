@@ -48,7 +48,7 @@ OBJ_BONUS = $(SRCS_BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) Makefile
 	ar rcs $@ $^
 
 bonus: $(NAME) $(OBJ_BONUS)
@@ -58,7 +58,7 @@ bonus: $(NAME) $(OBJ_BONUS)
 		echo "make: Nothing to be done for 'bonus'."; \
 	fi
 
-%.o: %.c
+%.o: %.c Makefile
 	cc $(CFLAGS) -MMD -MP -c $< -o $@
 
 -include $(OBJ:.o=.d) $(OBJ_BONUS:.o=.d)

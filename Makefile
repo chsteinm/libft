@@ -1,6 +1,6 @@
 NAME = libft.a
 CFLAGS = -Wall -Wextra -Werror
-SRCS = 	ft_atoi.c \
+SRCS = 	ft_atol.c \
 		ft_bzero.c \
 		ft_calloc.c \
 		ft_isalnum.c \
@@ -15,7 +15,7 @@ SRCS = 	ft_atoi.c \
 		ft_memmove.c \
 		ft_memset.c \
 		ft_putchar_fd.c \
-		ft_putendl.c \
+		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
 		ft_putstr_fd.c \
 		ft_split.c \
@@ -33,8 +33,9 @@ SRCS = 	ft_atoi.c \
 		ft_strtrim.c \
 		ft_substr.c \
 		ft_tolower.c \
-		ft_toupper.c
-OBJ = $(SRCS:.c=.o)
+		ft_toupper.c \
+		ft_itoa_base.c
+OBJ = $(addprefix $(BUILD_DIR)/,$(SRCS:.c=.o))
 SRCS_BONUS =	ft_lstadd_back_bonus.c \
 				ft_lstadd_front_bonus.c \
 				ft_lstclear_bonus.c \
@@ -44,7 +45,8 @@ SRCS_BONUS =	ft_lstadd_back_bonus.c \
 				ft_lstmap_bonus.c \
 				ft_lstnew_bonus.c \
 				ft_lstsize_bonus.c
-OBJ_BONUS = $(SRCS_BONUS:.c=.o)
+OBJ_BONUS = $(addprefix $(BUILD_DIR)/,$(SRCS_BONUS:.c=.o))
+BUILD_DIR = .build
 
 all: $(NAME)
 
@@ -58,13 +60,14 @@ bonus: $(NAME) $(OBJ_BONUS)
 		echo "make: Nothing to be done for 'bonus'."; \
 	fi
 
-%.o: %.c Makefile
+$(BUILD_DIR)/%.o: %.c Makefile
+	@mkdir -p $(BUILD_DIR)
 	cc $(CFLAGS) -MMD -MP -c $< -o $@
 
 -include $(OBJ:.o=.d) $(OBJ_BONUS:.o=.d)
 
 clean:
-	rm -f *.o *.d
+	rm -f $(BUILD_DIR)
 
 fclean: clean
 	rm -f $(NAME)

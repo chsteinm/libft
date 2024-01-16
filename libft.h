@@ -19,6 +19,9 @@
 typedef struct s_list
 {
 	void			*content;
+	int				index;
+	char			*index_base;
+	int				len_index_base;
 	struct s_list	*next;
 }	t_list;
 
@@ -28,7 +31,7 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 size_t	ft_strlen(const char *str);
-int		ft_atoi(const char *str);
+long	ft_atol(const char *str);
 void	*ft_bzero(char *str, int size);
 void	*ft_memset(void *str, int c, size_t size);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -52,6 +55,7 @@ char	**ft_split(char const *s, char c);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_itoa(int n);
+char	*ft_itoa_base(int n, char *base);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	ft_putstr_fd(char *s, int fd);

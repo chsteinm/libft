@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrstein <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -20,7 +20,7 @@ static int	atoi_overflow(int sign)
 		return (0);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
 	long	res;
 	long	sign;
@@ -45,5 +45,5 @@ int	ft_atoi(const char *str)
 			return (atoi_overflow(sign));
 		res += *str++ - 48;
 	}
-	return ((int)(res * sign));
+	return ((res * sign));
 }

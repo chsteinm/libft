@@ -1,6 +1,7 @@
 #include "libft.h"
 
-static void	rec(unsigned int nb, char *ptr, unsigned int len_base, char *base)
+static void	rec(unsigned int nb, char *ptr, unsigned int len_base, 
+const char *base)
 {
 	if (nb > len_base - 1)
 		rec(nb / len_base, ptr + 1, len_base, base);
@@ -22,7 +23,7 @@ void	revers_str(char *str)
 	}
 }
 
-char	*ft_itoa_base(int n, char *base)
+char	*ft_itoa_base(int n, const char *base)
 {
 	unsigned int		nb;
 	unsigned int		len_base;

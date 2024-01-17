@@ -67,10 +67,10 @@ $(BUILD_DIR)/%.o: %.c Makefile
 -include $(OBJ:.o=.d) $(OBJ_BONUS:.o=.d)
 
 clean:
-	rm -f $(BUILD_DIR)
+	rm -rf $(BUILD_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re : fclean
 	make

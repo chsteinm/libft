@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chrstein <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/17 18:19:02 by chrstein          #+#    #+#             */
+/*   Updated: 2024/01/17 18:19:46 by chrstein         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static void	rec(unsigned int nb, char *ptr, unsigned int len_base, 
-const char *base)
+static void	rec(unsigned int nb, char *ptr, unsigned int len_base,
+		const char *base)
 {
 	if (nb > len_base - 1)
 		rec(nb / len_base, ptr + 1, len_base, base);

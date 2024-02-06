@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_free_strings.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrstein <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 16:23:41 by chrstein          #+#    #+#             */
-/*   Updated: 2023/11/06 16:24:08 by chrstein         ###   ########.fr       */
+/*   Created: 2024/02/06 17:20:07 by chrstein          #+#    #+#             */
+/*   Updated: 2024/02/06 17:20:14 by chrstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_free_strings(char **strs)
 {
 	size_t	i;
 
+	if (!strs)
+		return ;
 	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-		i++;
-	return (i);
+	while (strs[i])
+		free(strs[i++]);
+	free(strs);
+	strs = NULL;
 }

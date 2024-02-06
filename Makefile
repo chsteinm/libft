@@ -8,6 +8,7 @@ SRCS = 	ft_atol.c \
 		ft_isascii.c \
 		ft_isdigit.c \
 		ft_isprint.c \
+		ft_iswhitespace.c \
 		ft_itoa.c \
 		ft_memchr.c \
 		ft_memcmp.c \
@@ -34,7 +35,9 @@ SRCS = 	ft_atol.c \
 		ft_substr.c \
 		ft_tolower.c \
 		ft_toupper.c \
-		ft_itoa_base.c
+		ft_itoa_base.c \
+		ft_free_strings.c \
+		ft_strsdup.c
 OBJ = $(addprefix $(BUILD_DIR)/,$(SRCS:.c=.o))
 SRCS_BONUS =	ft_lstadd_back_bonus.c \
 				ft_lstadd_front_bonus.c \
@@ -51,28 +54,28 @@ BUILD_DIR = .build
 all: $(NAME)
 
 $(NAME): $(OBJ) Makefile
-	ar rcs $@ $^
+	@ar rcs $@ $^
 
 bonus: $(NAME) $(OBJ_BONUS)
 	@if [ "$$(find $(OBJ_BONUS) -newer "$(NAME)" -print -quit)" ]; then \
 		ar rcs $(NAME) $^; \
-	else \
-		echo "make: Nothing to be done for 'bonus'."; \
+	# else \
+	# 	echo "libft make: Nothing to be done for 'bonus'."; \
 	fi
 
 $(BUILD_DIR)/%.o: %.c Makefile
 	@mkdir -p $(BUILD_DIR)
-	cc $(CFLAGS) -MMD -MP -c $< -o $@
+	@cc $(CFLAGS) -MMD -MP -c $< -o $@
 
 -include $(OBJ:.o=.d) $(OBJ_BONUS:.o=.d)
 
 clean:
-	rm -rf $(BUILD_DIR)
+	@rm -rf $(BUILD_DIR)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re : fclean
-	make
+	@make
 
 .PHONY: all clean fclean re bonus

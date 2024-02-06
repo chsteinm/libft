@@ -24,6 +24,11 @@ typedef struct s_list
 	int				len_index_base;
 	struct s_list	*next;
 	struct s_list	*prec;
+	int				price;
+	int				place;
+	int				nearest_index_place;
+	int				near_diff;
+	int				nb_bigger;
 }	t_list;
 
 int		ft_isalpha(int c);
@@ -31,6 +36,7 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_iswhitespace(char c);
 size_t	ft_strlen(const char *str);
 long	ft_atol(const char *str);
 void	*ft_bzero(char *str, int size);
@@ -70,5 +76,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void	ft_free_strings(char **strs);
+char	**strsdup(char **strs, size_t size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: chrstein <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:33:48 by chrstein          #+#    #+#             */
-/*   Updated: 2023/11/06 18:23:04 by chrstein         ###   ########.fr       */
+/*   Updated: 2024/03/01 19:43:38 by chrstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_list
 	char			*index_base;
 	int				len_index_base;
 	struct s_list	*next;
-	struct s_list	*prec;
+	struct s_list	*prev;
 	int				price;
 	int				place;
 	int				nearest_index_place;
